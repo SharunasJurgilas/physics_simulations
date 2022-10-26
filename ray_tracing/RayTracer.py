@@ -25,7 +25,9 @@ class Ray:
     fullHistory: if set to True will keep track of all ray intercepts. If only the last intercept is relevant, set to False (default)
     '''
     
-    def __init__(self, p0=[0,0,0], k0=[0,0,1], fullHistory = False):
+    def __init__(self, p0, k0, fullHistory = False):
+        if type(p0) != type([]) or type(k0) != type([]):
+            raise TypeError('p0 and k0 must be 3-element lists')
         self.p0 = np.array(p0, dtype='float64')
         self.k0 = np.array(k0, dtype='float64')
         self.p0List = [p0]
