@@ -139,9 +139,11 @@ class OpticalSystemAnalysis:
     '''
     
     def __init__(self, 
-                 system=[], 
-                 zoom_z=[], 
-                 zoom_w=[]):
+                 system,
+                 zoom_z,
+                 zoom_w):
+        if type(zoom_z) != type([]) or type(zoom_w) != type([]):
+            raise TypeError('zoom must be a list')
         self.system = system
         self.zoom_z = zoom_z
         self.zoom_w = zoom_w
